@@ -1,24 +1,24 @@
-import { fetchMovies } from 'services/moviesAPI';
 import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { fetchMovies } from 'services/movieAPI';
 
-export const HomePage = () => {
+const HomePage = () => {
     const [movies, setMovies] = useState([]);
     useEffect(()=>{
-        fetchMovies("trending/get-trending").then(setMovies);
+        fetchMovies().then((res) => setMovies(res.results));
     }, []);
-    return (
+      return (
         <>
         <h1>Trending today</h1>
-        {' '}
-        <ul>
-          {movies.map(({ name, id }) => (
+          <ul>
+          {movies.map(({ title, id }) => (
             <li key={id}>
-              <Link to={id}>{name}</Link>
+              <Link to={`movies/${id}`}>{title}</Link>
             </li>
           ))}
         </ul>
         <Outlet />
       </> 
-    );
-  };
+    )};
+
+    export default HomePage;

@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import {  Link } from 'react-router-dom';
+import {  Link, useLocation, useSearchParams } from 'react-router-dom';
 import { SearchMovie } from './SearchMovie';
 import { fetchMoviesBySymbol } from '../../services/movieAPI';
 
 export const Movies = () => {
    const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState('');
   const [error, setError] = useState('');
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get("query");
   
-
   const handleSearch = data => {
-    setQuery(data);
-    setMovies([]);
-  };
+   
+    setSearchParams({ query: data });
+     };
   useEffect(() => {
     if (!query) {
       return;
@@ -20,27 +21,26 @@ export const Movies = () => {
      setError('');
      fetchMoviesBySymbol(query)
       .then(res => {
-        if (!res.data.hits.length) {
+        if (!res.results.length) {
             setMovies([]);
           alert('Try another query!');
         } else {
-            setMovies(prevMovies => [...prevMovies, ...res.data.hits]);
-        }
+            setMovies(prevMovies => [...prevMovies, ...res.results]);
+                    }
          })
       .catch(error => {
         setError(error.message);
       })
       .finally(() => console.log("Nothing"));
   }, [query, setError]);
-
+  console.log(movies);
   return (
     <div>
-      
-      <SearchMovie onSubmit={handleSearch}></SearchMovie>
+            <SearchMovie onSubmit={handleSearch}></SearchMovie>
       <ul>
           {movies.map(({ title, id }) => (
             <li key={id}>
-              {' '}<Link to={id}>{title}</Link>
+              <Link to={`${id}`}>{title}</Link>
             </li>
           ))}
         </ul>

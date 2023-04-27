@@ -1,4 +1,4 @@
-import { BsSearchHeart } from 'react-icons/bs';
+
 import {
     SearchForm,
     SearchFormButton,
@@ -9,12 +9,13 @@ export const SearchMovie = ({ onSubmit }) => {
     const handleSubmit = e => {
       e.preventDefault();
       onSubmit(e.target.elements.query.value);
+      // form.reset()
     };
     return (
       <>
         <SearchForm onSubmit={handleSubmit}>
           <SearchFormButton type="submit">
-            <BsSearchHeart />
+           Search
           </SearchFormButton>
           <SearchFormInput
             type="text"

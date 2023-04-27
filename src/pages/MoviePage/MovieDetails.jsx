@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useNavigate, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import { fetchMoviesById } from '../../services/movieAPI';
 
 export const MovieDetails = () => {
-  const navigate = useNavigate();
+ 
   const [movie, setMovie] = useState(null);
    const { id } = useParams();
 
@@ -13,8 +13,7 @@ export const MovieDetails = () => {
   }, [movie,id]);
   return (
     <>
-    <button onClick={() => navigate(-1)}>Go back</button>
-        <h2> Additionali information</h2>
+            <h3> Additionali information</h3>
         <Link to={`cast`}>Cast</Link>
 			<br />
 		<Link to={`rewiews`}>Rewiews</Link>
