@@ -1,50 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import {  Link, useLocation, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { SearchMovie } from './SearchMovie';
 import { fetchMoviesBySymbol } from '../../services/movieAPI';
 
-export const Movies = () => {
-   const [movies, setMovies] = useState([]);
+const Movies = () => {
+  const [movies, setMovies] = useState([]);
   const [error, setError] = useState('');
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get("query");
-  
+  const query = searchParams.get('query');
+ 
   const handleSearch = data => {
-   
     setSearchParams({ query: data });
-     };
+  };
   useEffect(() => {
     if (!query) {
       return;
     }
-     setError('');
-     fetchMoviesBySymbol(query)
+    setError('');
+    fetchMoviesBySymbol(query)
       .then(res => {
         if (!res.results.length) {
-            setMovies([]);
+          setMovies([]);
           alert('Try another query!');
         } else {
-            setMovies(prevMovies => [...prevMovies, ...res.results]);
-                    }
-         })
+          setMovies(prevMovies => [...prevMovies, ...res.results]);
+        }
+      })
       .catch(error => {
         setError(error.message);
       })
-      .finally(() => console.log("Nothing"));
+      .finally(() => console.log('Nothing'));
   }, [query, setError]);
-  console.log(movies);
-  return (
+    return (
     <div>
-            <SearchMovie onSubmit={handleSearch}></SearchMovie>
+      <SearchMovie onSubmit={handleSearch}></SearchMovie>
       <ul>
-          {movies.map(({ title, id }) => (
-            <li key={id}>
-              <Link to={`${id}`}>{title}</Link>
-            </li>
-          ))}
-        </ul>
+        {movies.map(({ title, id }) => (
+          <li key={id}>
+            <Link to={`${id}`} state={{from: location}}>{title}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
-
+export default Movies;

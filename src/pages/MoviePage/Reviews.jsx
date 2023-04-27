@@ -4,14 +4,15 @@ import { fetchMoviesReviews } from 'services/movieAPI'
 
 const Reviews = () => {
 	const { id } = useParams()
-	const [reviews, setReviews] = useState("");
-
+	const [reviews, setReviews] = useState([]);
+	console.log(reviews);
 	useEffect(() => {
-        fetchMoviesReviews(id).then(res => {
-			setReviews(res.reviews)
+        fetchMoviesReviews(id).then(
+			res => { console.log(res);
+			setReviews(res.results)
 		})
 	}, [id])
-	return ( reviews.length !== 0 ? (
+	return ( reviews !== 0 ? (
 		<div>
 			Reviews
 			<ul>

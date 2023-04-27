@@ -8,7 +8,7 @@ const HomePage = () => {
         fetchMovies().then((res) => setMovies(res.results));
     }, []);
       return (
-        <>
+        <section>
         <h1>Trending today</h1>
           <ul>
           {movies.map(({ title, id }) => (
@@ -18,7 +18,7 @@ const HomePage = () => {
           ))}
         </ul>
         <Outlet />
-      </> 
+      </section> 
     )};
 
     export default HomePage;

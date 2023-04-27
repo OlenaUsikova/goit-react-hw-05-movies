@@ -8,12 +8,15 @@ export const SearchForm = styled.form`
     background-color: #fff;
     border-radius: 3px;
     overflow: hidden;
+    margin-top: 10px;
     `
 export const SearchFormButton = styled.button`
     display: inline-block;
-    width: 48px;
+    width: 90px;
     height: 48px;
     border: 0;
+    font-size:18px;
+    margin-left: 15px;
     background-size: 40%;
     background-repeat: no-repeat;
     background-position: center;
@@ -24,28 +27,19 @@ export const SearchFormButton = styled.button`
     &:hover {
     opacity: 1;}
     `
-    export const SearchFormButtonLabel = styled.span`
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    clip-path: inset(50%);
-    border: 0;
-`
 
 export const SearchFormInput  = styled.input`
     display: inline-block;
     width: 100%;
     font: inherit;
-    font-size: 20px;
-    border: none;
+    font-size: 18px;
+    border: 1px;
     outline: none;
+    margin-left: 25px;
     padding-left: 4px;
     padding-right: 4px;
+    padding-top: 8px;
     &::placeholder {
     font: inherit;
-    font-size: 18px;}
+    }
     `

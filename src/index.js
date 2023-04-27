@@ -9,9 +9,6 @@ const Global = createGlobalStyle`
 body{
   font-size: 24px;
 }
-/* li {
-  list-style: none;
-} */
 a{
 	color: inherit;
 }
@@ -23,7 +20,9 @@ p{font-size: 16px; }
 `
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter basename='goit-react-hw-05-movies'>
-    <App />
-    <Global/>
+      <React.StrictMode>
+      <App />
+      <Global />
+    </React.StrictMode>
   </BrowserRouter>
 );
