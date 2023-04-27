@@ -12,9 +12,7 @@ const Reviews = () => {
 			setReviews(res.results)
 		})
 	}, [id])
-	return ( reviews !== 0 ? (
-		<div>
-			Reviews
+	return ( reviews.length ? (
 			<ul>
 				{reviews.map(review => (
 					<li key={review.id}>
@@ -24,8 +22,7 @@ const Reviews = () => {
 						<p>{review.content}</p>
 					</li>
 				))}
-			</ul>
-		</div>) : (
+			</ul>) : (
             <p>Sorry, we don't have any reviews for this movie</p>
         )
 	)

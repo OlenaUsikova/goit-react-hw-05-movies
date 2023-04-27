@@ -6,8 +6,8 @@ import HomePage from 'pages/HomePage/HomePage';
 const Layout = lazy(()=>import('./components/Layout'))
 const Movies = lazy(()=>import('pages/Movies/Movies'))
 const MoviePage = lazy(()=>import('pages/MoviePage/MoviePage'))
-const Cast = lazy(()=>import('pages/MoviePage/Cast'))
-const Reviews = lazy(()=>import('pages/MoviePage/Reviews'))
+const Cast = lazy(()=>import('components/Subpages/Cast'))
+const Reviews = lazy(()=>import('components/Subpages/Reviews'))
 
 
 export const App = () => {

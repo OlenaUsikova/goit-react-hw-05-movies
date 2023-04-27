@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { SearchMovie } from './SearchMovie';
+import { SearchMovie } from '../../components/Search/SearchMovie';
 import { fetchMoviesBySymbol } from '../../services/movieAPI';
 
 const Movies = () => {

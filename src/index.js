@@ -15,8 +15,8 @@ a{
 h1{font-size: 30px; }
 h2{font-size: 24px; }
 h3{font-size: 20px; }
-h4{font-size: 16px; }
-p{font-size: 16px; }
+h4{font-size: 18px; }
+p{font-size: 18px; font-weight: 500;}
 `
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter basename='goit-react-hw-05-movies'>

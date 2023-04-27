@@ -12,8 +12,6 @@ const Cast = () => {
 		})
 	}, [id])
 	return ( actors.length && (
-		<div>
-			Cast
 			<ul>
 				{actors.map((data) => (
 					<li key={data.cast_id}>
@@ -25,7 +23,6 @@ const Cast = () => {
 					</li>
 				))}
 			</ul>
-		</div>)
-	)
+	))
 }
 export default Cast
