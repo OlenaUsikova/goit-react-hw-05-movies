@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 import { fetchMovies } from 'services/movieAPI';
 
 const HomePage = () => {
@@ -17,7 +17,6 @@ const HomePage = () => {
             </li>
           ))}
         </ul>
-        <Outlet />
       </section> 
     )};
 

@@ -5,7 +5,7 @@ import { fetchMoviesBySymbol } from '../../services/movieAPI';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  const [ setError] = useState('');
+  const [error, setError] = useState('');
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query');
@@ -35,6 +35,7 @@ const Movies = () => {
     return (
     <div>
       <SearchMovie onSubmit={handleSearch}></SearchMovie>
+      {error && <p>{error}</p>}
       <ul>
         {movies.map(({ title, id }) => (
           <li key={id}>

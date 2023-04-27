@@ -11,7 +11,7 @@ const Cast = () => {
 			setActors(res.cast)
 		})
 	}, [id])
-	return ( actors.length && (
+	return ( actors.length > 0 && (
 			<ul>
 				{actors.map((data) => (
 					<li key={data.cast_id}>

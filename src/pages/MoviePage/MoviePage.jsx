@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Outlet, useNavigate, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { fetchMoviesById } from '../../services/movieAPI';
 import { StyledLink, StyledSection, Subtitle } from './StyledMoviePage';
 
@@ -7,6 +7,7 @@ const MoviePage = () => {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation()
 
   useEffect(() => {
     fetchMoviesById(id).then((res) => setMovie(res));
@@ -15,7 +16,7 @@ const MoviePage = () => {
   return (
     <>
     <button onClick={() => navigate(-1)}>Go back</button>
-      {movie && (
+          {movie && (
         <StyledSection>
           <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} width='250px'/>
           <div>
