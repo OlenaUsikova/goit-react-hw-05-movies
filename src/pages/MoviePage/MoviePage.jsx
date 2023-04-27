@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
+import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import { fetchMoviesById } from '../../services/movieAPI';
 import { StyledLink, StyledSection, Subtitle } from './StyledMoviePage';
 
