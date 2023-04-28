@@ -24,7 +24,7 @@ const Movies = () => {
           setMovies([]);
           alert('Try another query!');
         } else {
-          setMovies(prevMovies => [...prevMovies, ...res.results]);
+          setMovies(prevMovies => [...res.results]);
         }
       })
       .catch(error => {

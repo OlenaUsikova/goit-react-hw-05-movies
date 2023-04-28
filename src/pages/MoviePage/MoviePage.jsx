@@ -15,7 +15,8 @@ const MoviePage = () => {
     // console.log(movie.vote_average * 10); 
   return (
     <>
-    <button onClick={() => navigate(-1)}>Go back</button>
+    {/* <button onClick={() => navigate(-1)}>Go back</button> */}
+    <button onClick={()=>{navigate(location?.state?.from ?? '/')}}>Go back</button>
           {movie && (
         <StyledSection>
           <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} width='250px'/>
