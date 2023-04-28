@@ -1,16 +1,24 @@
 import PropTypes from 'prop-types';
 import { SearchForm, SearchFormButton, SearchFormInput } from './StyledSearch';
+import { useState } from 'react';
 
 export const SearchMovie = ({ onSubmit }) => {
+  const [inputValue, setInputValue] = useState('');
+
   const handleSubmit = e => {
     e.preventDefault();
-    if(e.target.elements.query.value)
-    {onSubmit(e.target.elements.query.value)};
+    if(inputValue)
+    {onSubmit(inputValue)};
   };
-  return (
+  const handleChange = e => {
+    const { value } = e.target;
+    setInputValue(value.toLowerCase().trim());
+  };
+   return (
     <>
       <SearchForm onSubmit={handleSubmit}>
-        <SearchFormButton type="submit" >
+        <SearchFormButton type="submit" disabled={inputValue ? false : true}
+>
           Search
         </SearchFormButton>
         <SearchFormInput
@@ -19,7 +27,8 @@ export const SearchMovie = ({ onSubmit }) => {
           autoFocus
           placeholder="Search movies"
           name="query"
-        />
+          onChange={handleChange}
+         />
       </SearchForm>
     </>
   );
