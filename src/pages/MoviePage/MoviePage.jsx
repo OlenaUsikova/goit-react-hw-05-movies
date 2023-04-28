@@ -32,9 +32,9 @@ const MoviePage = () => {
       
       <Subtitle> Additionali information</Subtitle>
       <StyledSection>
-        <StyledLink to="cast">Cast</StyledLink>
+        <StyledLink to="cast" state={location.state}>Cast</StyledLink>
 			<br />
-		<StyledLink to="reviews" >Rewiews</StyledLink>
+		<StyledLink to="reviews" state={location.state}>Rewiews</StyledLink>
          <Outlet />
       </StyledSection>
     </>
